@@ -74,49 +74,29 @@ function api_x_apps_add_menu_items()
 {
     $CI = &get_instance();
 
-    $CI->app_menu->add_sidebar_menu_item('api_x_apps_main_menu', [
-        'name'     => _l('api_x_apps_main_menu'),
+    // Main menu: Api Appo
+    $CI->app_menu->add_sidebar_menu_item('api_appo_main_menu', [
+        'name'     => _l('api_appo_main_menu'),
         'collapse' => true,
         'position' => 10,
-        'icon'     => 'fa fa-cogs',
+        'icon'     => 'fa fa-plug',
     ]);
 
-    $CI->app_menu->add_sidebar_child_item('api_x_apps_main_menu', [
-        'slug'     => 'Tokens',
-        'name'     => _l('api_x_apps_menu_api_tokens'),
-        'href'     => admin_url('tokens'),
+    // Child menu: Api Tokens
+    $CI->app_menu->add_sidebar_child_item('api_appo_main_menu', [
+        'slug'     => 'api_tokens',
+        'name'     => _l('api_appo_menu_api_tokens'),
+        'href'     => admin_url('api_x_apps/tokens'),
         'position' => 5,
-        'icon'     => 'fa fa-question-circle',
+        'icon'     => 'fa fa-ticket',
     ]);
     
-    $CI->app_menu->add_sidebar_child_item('api_x_apps_main_menu', [
-        'slug'     => 'my_menu_item',
-        'name'     => _l('api_x_apps_menu_my_menu_item'),
-        'href'     => admin_url('my_menu_item'),
+    // Child menu: Api Keys
+    $CI->app_menu->add_sidebar_child_item('api_appo_main_menu', [
+        'slug'     => 'api_keys',
+        'name'     => _l('api_appo_menu_api_keys'),
+        'href'     => admin_url('api_x_apps/keys'),
         'position' => 10,
-        'icon'     => 'fa fa-question-circle',
-    ]);
-    
-    $CI->app_menu->add_sidebar_child_item('api_x_apps_main_menu', [
-        'slug'     => 'my_menu_item2',
-        'name'     => _l('api_x_apps_menu_my_menu_item2'),
-        'href'     => admin_url('my_menu_item2'),
-        'position' => 15,
-        'icon'     => 'fa fa-question-circle',
-    ]);
-}
-
-// As per instructions, create CRUD for each table, even if not in menu.
-// To make the Keys table accessible, you can uncomment the following lines:
-/*
-hooks()->add_action('admin_init_menu_items', function(){
-    $CI = &get_instance();
-    $CI->app_menu->add_sidebar_child_item('api_x_apps_main_menu', [
-        'slug'     => 'keys',
-        'name'     => 'API Keys (Example)',
-        'href'     => admin_url('keys'),
-        'position' => 20,
         'icon'     => 'fa fa-key',
     ]);
-});
-*/
+}

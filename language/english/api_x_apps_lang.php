@@ -1,13 +1,12 @@
 <?php
 
 # General
-$lang['module_api_x_apps_name'] = 'Api x Apps';
+$lang['module_api_x_apps_name'] = 'Api Appo';
 
 # Menu
-$lang['api_x_apps_main_menu'] = 'Api x Apps';
-$lang['api_x_apps_menu_api_tokens'] = 'Api Tokens';
-$lang['api_x_apps_menu_my_menu_item'] = 'My Menu Item';
-$lang['api_x_apps_menu_my_menu_item2'] = 'My Menu Item2';
+$lang['api_appo_main_menu'] = 'Api Appo';
+$lang['api_appo_menu_api_tokens'] = 'Api Tokens';
+$lang['api_appo_menu_api_keys'] = 'Api Keys';
 
 # Permissions
 $lang['api_x_apps_keys'] = 'API Keys';
