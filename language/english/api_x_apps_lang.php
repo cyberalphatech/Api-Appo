@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') or exit('No direct script access allowed');
 
 # General
 $lang['module_api_x_apps_name'] = 'Api Appo';
@@ -17,14 +18,20 @@ $lang['api_x_apps_key'] = 'API Key';
 $lang['new_key'] = 'New API Key';
 $lang['edit_key'] = 'Edit API Key';
 $lang['table_keys_id'] = 'ID';
-$lang['table_keys_col1'] = 'Key Field 1';
-$lang['table_keys_col2'] = 'Key Field 2';
+$lang['key_name'] = 'Key Name';
+$lang['key_value'] = 'Key Value';
 
 # Tokens
 $lang['api_x_apps_token'] = 'API Token';
 $lang['new_token'] = 'New API Token';
 $lang['edit_token'] = 'Edit API Token';
 $lang['table_tokens_id'] = 'ID';
-$lang['table_tokens_col1'] = 'Token Field 1';
-$lang['table_tokens_col2'] = 'Token Field 2';
+$lang['token_name'] = 'Token Name';
+$lang['token_value'] = 'Token Value';
+$lang['expires_at'] = 'Expires At';
 
+# Common
+$lang['description'] = 'Description';
+$lang['status'] = 'Status';
+$lang['active'] = 'Active';
+$lang['inactive'] = 'Inactive';

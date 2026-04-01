@@ -52,9 +52,9 @@ function api_x_apps_uninstall_hook()
 register_language_files(API_X_APPS_MODULE_NAME, [API_X_APPS_MODULE_NAME]);
 
 /**
- * Add module permissions
+ * Add module permissions - must use add_filter, not add_action
  */
-hooks()->add_action('app_admin_permissions', 'api_x_apps_permissions');
+hooks()->add_filter('staff_permissions', 'api_x_apps_permissions');
 
 function api_x_apps_permissions($permissions)
 {
