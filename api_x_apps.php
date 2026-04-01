@@ -19,7 +19,26 @@ register_activation_hook(API_X_APPS_MODULE_NAME, 'api_x_apps_activation_hook');
 function api_x_apps_activation_hook()
 {
     $CI = &get_instance();
-    require_once(__DIR__ . '/install.php');
+    
+    // [v0] Debug: Log activation hook triggered
+    log_activity('[v0] DEBUG: api_x_apps activation hook triggered');
+    error_log('[v0] DEBUG: api_x_apps activation hook triggered at ' . date('Y-m-d H:i:s'));
+    
+    // [v0] Debug: Check if install.php exists
+    $install_file = __DIR__ . '/install.php';
+    if (file_exists($install_file)) {
+        log_activity('[v0] DEBUG: install.php found at ' . $install_file);
+        error_log('[v0] DEBUG: install.php found at ' . $install_file);
+    } else {
+        log_activity('[v0] DEBUG: install.php NOT FOUND at ' . $install_file);
+        error_log('[v0] DEBUG: install.php NOT FOUND at ' . $install_file);
+    }
+    
+    require_once($install_file);
+    
+    // [v0] Debug: Log after require
+    log_activity('[v0] DEBUG: install.php loaded successfully');
+    error_log('[v0] DEBUG: install.php loaded successfully');
 }
 
 /**
