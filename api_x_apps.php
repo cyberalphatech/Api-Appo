@@ -1,16 +1,15 @@
 <?php
-/**
- * Ensures that the module init file can't be accessed directly, only within the application.
- */
+
 defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
-Module Name: Api Appo
-Description: API management module for external app connections - Manage API Tokens and API Keys
-Author: BIT Solutions OU
-Version: 1.0.0
-Requires at least: 2.3.*
-*/
+ * Module Name: Api Appo
+ * Description: API management module for external app connections - Manage API Tokens and API Keys
+ * Version: 1.0.0
+ * Requires at least: 2.3.*
+ * Author: BIT Solutions OU
+ * Author URI: https://bitsolutions.ee
+ */
 
 define('API_X_APPS_MODULE_NAME', 'api_x_apps');
 
