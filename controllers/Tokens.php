@@ -65,6 +65,6 @@ class Tokens extends AdminController
         } else {
             set_alert('warning', _l('problem_deleting', _l('api_x_apps_token')));
         }
-        redirect(admin_url('tokens'));
+        redirect(admin_url('api_x_apps/tokens'));
     }
 }

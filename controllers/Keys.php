@@ -65,6 +65,6 @@ class Keys extends AdminController
         } else {
             set_alert('warning', _l('problem_deleting', _l('api_x_apps_key')));
         }
-        redirect(admin_url('keys'));
+        redirect(admin_url('api_x_apps/keys'));
     }
 }
