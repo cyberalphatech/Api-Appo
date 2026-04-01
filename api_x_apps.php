@@ -86,7 +86,7 @@ function api_x_apps_add_menu_items()
     $CI->app_menu->add_sidebar_child_item('api_appo_main_menu', [
         'slug'     => 'api_tokens',
         'name'     => _l('api_appo_menu_api_tokens'),
-        'href'     => admin_url('tokens'),
+        'href'     => admin_url('api_x_apps/tokens'),
         'position' => 5,
         'icon'     => 'fa fa-ticket',
     ]);
@@ -95,7 +95,7 @@ function api_x_apps_add_menu_items()
     $CI->app_menu->add_sidebar_child_item('api_appo_main_menu', [
         'slug'     => 'api_keys',
         'name'     => _l('api_appo_menu_api_keys'),
-        'href'     => admin_url('keys'),
+        'href'     => admin_url('api_x_apps/keys'),
         'position' => 10,
         'icon'     => 'fa fa-key',
     ]);
