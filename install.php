@@ -1,33 +1,33 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-$CI = &get_instance();
-
-// Create appapi_keys table if not exists
-if (!$CI->db->table_exists(db_prefix() . 'appapi_keys')) {
-    $CI->db->query('CREATE TABLE `' . db_prefix() . "appapi_keys` (
-        `id` INT(11) NOT NULL AUTO_INCREMENT,
-        `key_name` VARCHAR(255) NULL,
-        `key_value` VARCHAR(255) NULL,
-        `description` TEXT NULL,
-        `status` TINYINT(1) NOT NULL DEFAULT '1',
-        `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
-        `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        PRIMARY KEY (`id`)
-    ) ENGINE=InnoDB DEFAULT CHARSET=" . $CI->db->char_set . ';');
+if (!class_exists('CI_Migration')) {
+    return;
 }
 
-// Create appapi_tokens table if not exists
-if (!$CI->db->table_exists(db_prefix() . 'appapi_tokens')) {
-    $CI->db->query('CREATE TABLE `' . db_prefix() . "appapi_tokens` (
-        `id` INT(11) NOT NULL AUTO_INCREMENT,
-        `token_name` VARCHAR(255) NULL,
-        `token_value` VARCHAR(255) NULL,
-        `description` TEXT NULL,
-        `status` TINYINT(1) NOT NULL DEFAULT '1',
-        `expires_at` DATETIME NULL,
-        `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
-        `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        PRIMARY KEY (`id`)
-    ) ENGINE=InnoDB DEFAULT CHARSET=" . $CI->db->char_set . ';');
+class Migration_Create_api_x_apps_tables extends CI_Migration
+{
+    public function up()
+    {
+        $this->db->query("CREATE TABLE IF NOT EXISTS `" . db_prefix() . "appapi_keys` (
+            `id` INT(11) NOT NULL AUTO_INCREMENT,
+            `new_column_1` VARCHAR(255) NULL,
+            `new_column_2` VARCHAR(255) NULL,
+            PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
+        $this->db->query("CREATE TABLE IF NOT EXISTS `" . db_prefix() . "appapi_tokens` (
+            `id` INT(11) NOT NULL AUTO_INCREMENT,
+            `new_column_1` VARCHAR(255) NULL,
+            `new_column_2` VARCHAR(255) NULL,
+            PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+    }
+
+    public function down()
+    {
+        // Down migration is not used in Perfex activation, but good practice to have.
+        $this->dbforge->drop_table('appapi_keys', true);
+        $this->dbforge->drop_table('appapi_tokens', true);
+    }
 }
